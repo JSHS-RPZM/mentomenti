@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'index/index.css' %}?v=11">
+{% endblock %}
+
+{% block module %}
+    {{ block.super }}
+    <!--<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>-->
+    <script src="{% static 'index/index.js' %}?v=3"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="upper_container">
+        <!--
+        <div id="banner" style="background-image: url('{{ banner_club.index_banner_image.image.url }}')">
+            <div class = 'inner_banner' onclick="return changeNav('club_{{ banner_club.code }}', '/about/{{ banner_club.code }}');">
+                <strong style="color: {{ banner_club.index_banner_color }}">{{ banner_club.name }}</strong>
+                <p>{{ banner_club.index_banner_description }}</p>
+            </div>
+        </div>-->
+        {% for club in banner_clubs %}
+        <div class="banner banner-{{ club.code }}" style="display: none;">
+            <div class="inner_banner" onclick="return changeNav('club_{{ club.code }}', '/about/{{ club.code }}');">
+                <strong style="color: {{ club.index_banner_color }}">{{ club.name }}</strong>
+                <p>{{ club.index_banner_description }}</p>
+            </div>
+        </div>
+        <style>
+            .banner-{{club.code}} {
+                background-image: url('{{ club.index_banner_image.image.url }}');
+            }
+        </style>
+        {% endfor %}
+    </div>
+    <h2 class="status" onclick="return changeNav('home', '/club_relation')">
+        지금은 <span class="current">{{ status.get_current_display }}!</span>
+    </h2>
+    {% if status.notice %}
+        <h4 class="notice">※ {{ status.notice }}</h4>
+    {% endif %}
+
+
+    {% if user.is_authenticated %}
+        <div class="outer-container">
+
+            
+
+        </div>
+    {% else %}
+        <div class="login_wrapper">
+            {% include 'account/login.html' %}
+        </div>
+    {% endif %}
+
+    <script>
+        selectNav('home');
+        var user_id = '{{ user.id }}';
+        var user_name = '{{ user.name }}';
+    </script>
+{% endblock %}

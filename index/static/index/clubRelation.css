@@ -1,0 +1,141 @@
+.bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	-webkit-animation: gradient 15s ease infinite;
+	        animation: gradient 15s ease infinite;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0 1rem 0;
+    color: white;
+}
+
+.title h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin: 1rem 0.1rem;
+    font-weight: 900;
+}
+
+.title p {
+    text-align: center;
+    margin: 0.1rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.with {
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+.rel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.logo {
+    width: 10rem;
+    height: auto;
+    margin: 1rem;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.by {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 200;
+    padding-bottom: 50px;
+    color: white;
+}
+
+hr {
+    margin: 20px 10% 3rem 10%;
+}
+
+.period_info {
+    font-weight: 700;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.period {
+    text-align: center;
+    color: white;
+    h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        background-image: #D3CCE3;  /* fallback for old browsers */
+        background-image: -webkit-linear-gradient(to right, #E9E4F0, #D3CCE3);  /* Chrome 10-25, Safari 5.1-6 */
+        background-image: linear-gradient(to right, #E9E4F0, #D3CCE3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+    h5 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0.5rem 0 1rem 0;
+    }
+    p {
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+    }
+    margin: 3rem 10%;
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 7rem;
+        margin: 0.3rem;
+    }
+
+}
+
+@media screen and (max-width: 512px) {
+    .mobile {
+        display: block;
+    }
+
+}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'about/about.css' %}?v=7">
+{% endblock %}
+
+{% block module %}
+    {{ block.super }}
+    <script src="{% static 'about/about.js' %}?v=3"></script>
+    <!-- Zero-md (https://github.com/zerodevx/zero-md) -->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="mobile-bg"></div>
+    <div class="background">
+        <style>
+            .background, .mobile-bg {
+                --background-image-url: url("{{ club.about_background.image.url }}")
+            }
+        </style>
+
+        <div class="entire">
+            <div class="left">
+                <div class="photo">
+
+
+                    <script>
+                        // 이 코드가 about.js보다 먼저 실행됨
+                        var images = [];
+                    </script>
+                    {% for image in club.about_images.all %}
+                        <script>
+                            images.push("{{ image.image.url }}");
+                        </script>
+                    {% endfor %}
+
+                    <div class="left_area">
+                        <button name="이전사진" class="arrow_button" onclick="change_image(-1);">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="right_area">
+                        <button name="다음사진" class="arrow_button" onclick="change_image(1);">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                {% if club.end %}
+                    <button class="submitpage end_submit" disabled>모집 종료</button>
+                {% elif club.kakao_url %}
+                    <button onclick="window.open('{{ club.kakao_url }}', '_blank');" class="submitpage">
+                        지원하기
+                    </button>
+                {% else %}
+                    <button onclick="changeNav('club_{{ club.code }}', '/form/submit/{{ club.code }}');" class="submitpage">
+                        지원하기
+                    </button>
+                {% endif %}
+                <div class="text">
+                    <zero-md>
+                        <template>
+                            <link rel="stylesheet" href="{% static 'about/markdown.css' %}?v=1">
+                        </template>
+                        <script type="text/markdown">{{ club.about_text|safe }}</script>
+                    </zero-md>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        selectNav('club_{{ club.code }}');
+    </script>
+{% endblock %}

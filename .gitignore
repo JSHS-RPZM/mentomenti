@@ -1,0 +1,14 @@
+/.idea/*
+.venv
+db.sqlite3
+!/.idea/runConfigurations
+media
+settings.json
+.git
+__pycache__/
+/static
+.DS_Store
+db2.sqlite3
+db3.sqlite3
+/media
+/logs
