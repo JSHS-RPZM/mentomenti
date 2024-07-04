@@ -31,6 +31,7 @@ git clone https://github.com/JSHS-RPZM/mentomenti)
 > Pycharm 사용 시, 이 설정을 완료한 뒤 우측 하단 `<No Interpreter>` -> Add Interpreter -> OK 눌러주면 더 간편하게 가상 환경을 사용할 수 있습니다.
 
 ```commandline
+cd "mentomenti"
 python -m venv .venv
 .venv/Scripts/activate.bat
 ```
