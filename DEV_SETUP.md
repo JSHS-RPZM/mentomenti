@@ -23,8 +23,7 @@
 
 ### 2. 소스코드 복제
 ```commandline
-git clone https://github.com/RoDeLa6/club-recruit
-cd club-recruit
+git clone https://github.com/JSHS-RPZM/mentomenti)
 ```
 
 ### 3. 개발 환경 준비
