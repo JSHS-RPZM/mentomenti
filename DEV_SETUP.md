@@ -32,7 +32,7 @@ git clone https://github.com/JSHS-RPZM/mentomenti)
 
 ```commandline
 python -m venv .venv
-.venv/Scripts/activate
+.venv/Scripts/activate.bat
 ```
 > Linux에서는 두번째 명령어를 `. .venv/bin/activate`로 입력해야 합니다.
 
