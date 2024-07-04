@@ -33,7 +33,8 @@ git clone https://github.com/JSHS-RPZM/mentomenti)
 ```commandline
 cd "mentomenti"
 python -m venv .venv
-.venv/Scripts/activate.bat
+.venv\Scripts\activate.bat
+리눅스는 일반 슬래쉬
 ```
 > Linux에서는 두번째 명령어를 `. .venv/bin/activate`로 입력해야 합니다.
 
